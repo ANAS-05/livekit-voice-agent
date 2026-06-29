@@ -7,7 +7,7 @@ from livekit.plugins import noise_cancellation, silero
 from livekit.agents import llm, stt, tts, inference
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
-from .tools import fetch_osmania_result, get_current_time
+from tools import fetch_osmania_result, get_current_time
 
 
 load_dotenv()

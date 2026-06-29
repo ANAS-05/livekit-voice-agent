@@ -4,7 +4,7 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 import httpx
 
 from livekit.agents import ToolError, function_tool, RunContext
-from .parser import parse_result
+from parser import parse_result
 
 
 @function_tool()
