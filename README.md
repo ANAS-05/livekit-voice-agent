@@ -10,7 +10,11 @@ Requires Python 3.14+ and [uv](https://docs.astral.sh/uv/).
 uv sync
 ```
 
-Copy your LiveKit and provider credentials into `.env` (see LiveKit docs for required keys).
+Copy the example env file and fill in your credentials:
+
+```bash
+cp .env.example .env
+```
 
 ## Run
 
