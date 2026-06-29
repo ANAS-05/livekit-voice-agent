@@ -7,7 +7,7 @@ from livekit.plugins import noise_cancellation, silero
 from livekit.agents import llm, stt, tts, inference
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 
-from tools import get_current_time
+from tools import fetch_osmania_result, get_current_time
 
 
 load_dotenv()
@@ -18,11 +18,13 @@ class Assistant(Agent):
     def __init__(self) -> None:
         super().__init__(
             instructions=(
-                "You are an upbeat, slightly sarcastic voice AI for tech support. "
-                "Help the caller fix issues without rambling, and keep replies under 3 sentences. "
-                "You can also tell the current time if asked."
+                "You are a friendly voice AI assistant for the "
+                "Computer Science Engineering (CSE) department at Muffakham Jah (MJ) College. "
+                "Help callers with their questions without rambling, and keep replies under 3 sentences. "
+                "You can look up exam results for CSE students at MJ College and tell the current time. "
+                "Politely decline requests outside this scope."
             ),
-            tools=[get_current_time],
+            tools=[get_current_time, fetch_osmania_result],
         )
 
 
@@ -62,6 +64,7 @@ async def entrypoint(ctx: JobContext):
         turn_detection=MultilingualModel(),
         preemptive_generation=True,
     )
+    
     # Start the session with noise cancellation enabled
     await session.start(
         agent=Assistant(),
