@@ -2,7 +2,7 @@ import re
 
 from bs4 import BeautifulSoup
 
-from schemas import StudentResult, Subject
+from .schemas import StudentResult, Subject
 
 
 # Map of Roman numerals used in semester labels to integers.
